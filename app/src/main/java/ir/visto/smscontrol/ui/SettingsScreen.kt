@@ -112,9 +112,9 @@ fun SettingsScreen(modifier: Modifier = Modifier, snackbar: SnackbarHostState) {
         Section("قالب فرمان‌ها")
         Card(Modifier.fillMaxWidth()) {
             Text(
-                "این‌ها را دقیقاً از روی دفترچهٔ راهنمای دستگاه وارد کنید.\n" +
+                "پیش‌فرض‌ها روی سینتکس رسمی ویستو تنظیم شده‌اند. اگر مدل شما فرق داشت، اصلاح کنید.\n" +
                         "جانگهدارها: {ch} شمارهٔ کانال، {min} دقیقه، {pw} رمز، {name} نام کانال.\n" +
-                        "نمونه: ON{ch} یا {pw}*1*{ch} یا «روشن {ch}»",
+                        "نمونهٔ ویستو: ({ch})On روشن، ({ch})Off خاموش، ({ch}){min} روشنِ زمان‌دار",
                 style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier.padding(12.dp)
             )

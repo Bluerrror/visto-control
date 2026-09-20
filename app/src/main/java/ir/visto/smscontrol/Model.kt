@@ -21,16 +21,18 @@ data class Channel(
  */
 data class Config(
     val deviceNumber: String = "",
-    val password: String = "",
+    val password: String = "9865",        // رمز پیش‌فرض کارخانهٔ ویستو
     val channelCount: Int = 3,
     val channelNames: List<String> = listOf("کانال ۱", "کانال ۲", "کانال ۳"),
-    val cmdOn: String = "ON{ch}",
-    val cmdOff: String = "OFF{ch}",
-    val cmdStatus: String = "STATUS",
-    val cmdTimer: String = "ON{ch}#{min}",
-    val cmdAllOff: String = "",           // خالی = تک‌تک کانال‌ها خاموش می‌شوند
-    val onWords: String = "ON,روشن,وصل,باز",
-    val offWords: String = "OFF,خاموش,قطع,بسته",
+    // قالب‌های تأییدشدهٔ ویستو/تکنواسمارت (منبع: بلاگ رسمی ویستو).
+    // نمونه: (۱)On روشن، (۳)Off خاموش، (۱)۲۰ روشن به‌مدت ۲۰ دقیقه، Off خاموشی همه.
+    val cmdOn: String = "({ch})On",
+    val cmdOff: String = "({ch})Off",
+    val cmdStatus: String = "9865",       // استعلام وضعیت در دفترچهٔ رسمی نیامده — این یک حدس است
+    val cmdTimer: String = "({ch}){min}",
+    val cmdAllOff: String = "Off",        // خاموش کردن همهٔ خروجی‌ها با یک فرمان
+    val onWords: String = "On,روشن,وصل,باز,فعال",
+    val offWords: String = "Off,خاموش,قطع,بسته,غیرفعال",
     val subscriptionId: Int = -1,          // -1 یعنی سیم‌کارت پیش‌فرض
     val confirm: Boolean = true,
     val simulator: Boolean = false

@@ -15,6 +15,7 @@ data class Preset(
 
 object Presets {
     val all = listOf(
+        Preset("ویستو / تکنواسمارت — (۱)On", "({ch})On", "({ch})Off", "9865", "({ch}){min}"),
         Preset("ON1 / OFF1", "ON{ch}", "OFF{ch}", "STATUS", "ON{ch}#{min}"),
         Preset("1ON / 1OFF", "{ch}ON", "{ch}OFF", "STATUS", "{ch}ON{min}"),
         Preset("با رمز — 1234*ON*1", "{pw}*ON*{ch}", "{pw}*OFF*{ch}", "{pw}*STATUS", "{pw}*ON*{ch}*{min}"),
