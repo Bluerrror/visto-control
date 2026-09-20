@@ -3,6 +3,16 @@
 اپلیکیشن اندروید برای کنترل کنترلرهای پیامکی (ویستو / تکنواسمارت و مشابه) از طریق SMS.
 با سه خروجی کار می‌کند ولی تا ۱۰ کانال قابل تنظیم است.
 
+## ⬇️ دانلود مستقیم APK
+
+[**دانلود آخرین نسخهٔ APK (کنترل ویستو)**](https://github.com/Bluerrror/visto-control/releases/download/latest/visto-control-debug.apk)
+
+[![دانلود APK](https://img.shields.io/badge/دانلود-APK%20کنترل%20ویستو-1B6B4A?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Bluerrror/visto-control/releases/download/latest/visto-control-debug.apk)
+
+روی گوشی، لینک بالا را باز کنید ← دانلود ← «نصب از منابع ناشناس» را فعال کنید ← نصب.
+(نیازی به حساب گیت‌هاب یا باز کردن فایل zip نیست.) — صفحهٔ همهٔ نسخه‌ها:
+[Releases](https://github.com/Bluerrror/visto-control/releases/latest)
+
 ---
 
 ## چرا «قالب فرمان» قابل ویرایش است؟
