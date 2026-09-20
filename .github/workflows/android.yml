@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,8 +20,9 @@ jobs:
 
       - name: Ensure Android SDK packages
         run: |
-          yes | sdkmanager --licenses > /dev/null || true
-          sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools" > /dev/null
+          SDKMGR="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKMGR" --licenses > /dev/null 2>&1 || true
+          "$SDKMGR" "platforms;android-34" "build-tools;34.0.0" "platform-tools" > /dev/null
 
       - uses: gradle/actions/setup-gradle@v4
 
@@ -28,14 +32,25 @@ jobs:
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
 
-      - name: Rename APK
+      - name: Prepare APK
         run: |
           mkdir -p out
           cp app/build/outputs/apk/debug/*.apk out/visto-control-debug.apk
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: visto-sms-debug-apk
           path: out/visto-control-debug.apk
           if-no-files-found: error
+
+      - name: Publish APK to Release (direct download link)
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: آخرین نسخهٔ APK — کنترل ویستو
+          body: |
+            فایل نصبی اندروید «کنترل ویستو». روی گوشی دانلود و نصب کنید
+            (نصب از منابع ناشناس را فعال کنید). این نسخه با کلید debug امضا شده است.
+          files: out/visto-control-debug.apk
