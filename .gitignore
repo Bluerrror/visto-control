@@ -1,0 +1,18 @@
+# Gradle / build
+.gradle/
+build/
+app/build/
+captures/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keystore (do not commit signing keys)
+*.jks
+*.keystore
